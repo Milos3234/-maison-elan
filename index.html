@@ -1,7 +1,644 @@
-MAISON ÉLAN — MONOCHROME EDITION
 
-Upload index.html to a GitHub repository. Then open Settings > Pages, choose Deploy from a branch, main, /(root), and save.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MAISON ÉLAN | Timeless Elegance</title>
+<meta name="description" content="Explore timeless clothing, luxury luggage and elegant watches at MAISON ÉLAN.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Italiana&display=swap" rel="stylesheet">
+<style>
+:root {
+  --black:#111;
+  --grey:#777;
+  --light:#f4f4f4;
+  --line:#dedede;
+  --white:#fff;
+}
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body {
+  margin:0;
+  background:white;
+  color:var(--black);
+  font-family:"DM Sans",Arial,sans-serif;
+}
+button,input { font:inherit; }
+button,a { -webkit-tap-highlight-color:transparent; }
+button { cursor:pointer; }
+a { color:inherit;text-decoration:none; }
+.serif { font-family:Italiana,Georgia,serif; font-weight:400; }
+.top {
+  padding:12px;text-align:center;
+  background:#111;color:white;
+  font-size:10px;letter-spacing:2px;
+}
+header {
+  position:sticky;top:0;z-index:20;
+  display:flex;align-items:center;justify-content:space-between;
+  gap:20px;padding:24px 6%;
+  background:#fff;border-bottom:1px solid var(--line);
+}
+.logo {
+  font-family:Italiana,Georgia,serif;
+  font-size:31px;letter-spacing:3px;white-space:nowrap;
+}
+nav { display:flex;gap:28px; }
+nav a,.action {
+  font-size:11px;font-weight:600;
+  letter-spacing:1.5px;text-transform:uppercase;
+}
+nav a:hover { color:#777; }
+.action {
+  border:0;background:transparent;
+  white-space:nowrap;
+}
+.hero {
+  display:grid;grid-template-columns:46% 54%;
+  min-height:650px;background:#f3f3f3;
+}
+.hero-text {
+  display:flex;flex-direction:column;align-items:flex-start;
+  justify-content:center;padding:90px 12%;
+}
+.eyebrow {
+  font-size:10px;letter-spacing:3px;
+  text-transform:uppercase;color:#777;
+}
+h1 {
+  font-family:Italiana,Georgia,serif;
+  font-weight:400;font-size:clamp(70px,8vw,125px);
+  line-height:.98;margin:24px 0;
+}
+.hero p:not(.eyebrow) {
+  color:#666;font-size:14px;line-height:2;
+  max-width:370px;margin-bottom:35px;
+}
+.btn {
+  display:inline-block;padding:17px 28px;
+  border:1px solid #111;background:#111;
+  color:white;font-size:11px;letter-spacing:2px;
+  text-transform:uppercase;text-align:center;
+  transition:.25s;
+}
+.btn:hover { background:#555;border-color:#555; }
+.btn-outline { background:transparent;color:#111; }
+.btn-outline:hover { background:#111;color:white; }
+.hero-image { position:relative;overflow:hidden; }
+.hero-image img {
+  width:100%;height:100%;object-fit:cover;
+  filter:grayscale(100%);
+}
+.hero-caption {
+  position:absolute;bottom:25px;right:30px;color:white;
+  font-size:11px;letter-spacing:2px;text-shadow:0 1px 5px #111;
+}
+.benefits {
+  display:flex;justify-content:center;gap:9%;
+  padding:25px 15px;border-bottom:1px solid var(--line);
+  font-size:10px;letter-spacing:1.5px;text-transform:uppercase;
+}
+.container { max-width:1450px;margin:auto;padding:0 6%; }
+section { scroll-margin-top:100px; }
+.section { padding:100px 0; }
+.section-head {
+  display:flex;justify-content:space-between;
+  align-items:end;gap:20px;margin-bottom:35px;
+}
+h2 {
+  font-family:Italiana,Georgia,serif;
+  font-size:clamp(42px,5vw,70px);
+  font-weight:400;margin:12px 0;
+}
+.section-head p { color:#777;font-size:13px; }
+.categories {
+  display:grid;grid-template-columns:repeat(3,1fr);gap:18px;
+}
+.category {
+  position:relative;aspect-ratio:4/5;
+  overflow:hidden;background:#ddd;
+}
+.category img {
+  width:100%;height:100%;object-fit:cover;
+  filter:grayscale(100%);transition:.6s;
+}
+.category:hover img { transform:scale(1.05); }
+.category:after {
+  content:"";position:absolute;inset:40% 0 0;
+  background:linear-gradient(transparent,rgba(0,0,0,.6));
+}
+.category-title {
+  position:absolute;z-index:1;bottom:30px;left:30px;color:white;
+}
+.category-title small { font-size:10px;letter-spacing:2px; }
+.category-title h3 {
+  font:normal 48px Italiana,Georgia,serif;
+  margin:8px 0 16px;
+}
+.category-title span { font-size:10px;letter-spacing:2px; }
+.shop { padding:95px 0;background:var(--light); }
+.filters { display:flex;gap:10px;flex-wrap:wrap;margin-bottom:32px; }
+.filters button {
+  background:transparent;border:1px solid #bbb;
+  padding:12px 20px;font-size:10px;
+  text-transform:uppercase;letter-spacing:1px;
+}
+.filters button.active,.filters button:hover {
+  color:white;background:#111;border-color:#111;
+}
+.products {
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:32px 18px;
+}
+.product-img {
+  position:relative;aspect-ratio:3/4;
+  overflow:hidden;background:#ddd;
+}
+.product-img img {
+  width:100%;height:100%;object-fit:cover;
+  filter:grayscale(100%);transition:.5s;
+}
+.product:hover img { transform:scale(1.05); }
+.tag {
+  position:absolute;top:12px;left:12px;
+  padding:8px 12px;background:white;
+  font-size:9px;letter-spacing:1px;
+}
+.add {
+  position:absolute;bottom:12px;left:12px;right:12px;
+  padding:14px;background:#fff;border:0;
+  text-transform:uppercase;font-size:10px;letter-spacing:1px;
+}
+.product small {
+  display:block;margin-top:17px;color:#777;
+  font-size:10px;letter-spacing:1px;text-transform:uppercase;
+}
+.product h3 {
+  font:normal 24px Italiana,Georgia,serif;margin:8px 0;
+}
+.price { font-size:13px;font-weight:600; }
+.editorial {
+  display:grid;grid-template-columns:1fr 1fr;
+  background:#151515;color:white;min-height:570px;
+}
+.editorial img {
+  width:100%;height:100%;object-fit:cover;filter:grayscale(100%);
+}
+.editorial-text {
+  display:flex;flex-direction:column;
+  justify-content:center;align-items:flex-start;
+  padding:80px 12%;
+}
+.editorial-text h2 { font-size:clamp(52px,6vw,85px); }
+.editorial-text p:not(.eyebrow) {
+  font-size:14px;color:#ccc;line-height:2;max-width:430px;
+}
+.editorial .btn { background:white;color:#111;border-color:white;margin-top:20px; }
+.about { display:grid;grid-template-columns:1fr 1fr;gap:12%;align-items:center; }
+.about p { color:#777;line-height:2;font-size:14px; }
+.newsletter {
+  text-align:center;background:#eee;padding:90px 20px;
+}
+.newsletter p { font-size:13px;color:#777; }
+.newsletter form {
+  display:flex;max-width:480px;margin:35px auto 0;
+  border-bottom:1px solid #111;
+}
+.newsletter input {
+  flex:1;min-width:0;padding:17px 8px;border:0;
+  background:transparent;outline:none;
+}
+.newsletter button {
+  border:0;background:transparent;
+  font-size:11px;text-transform:uppercase;letter-spacing:1px;
+}
+footer { background:#101010;color:white;padding:75px 6% 25px; }
+.footer-grid {
+  max-width:1400px;margin:auto;
+  display:grid;grid-template-columns:2fr 1fr 1fr 1.2fr;gap:40px;
+}
+footer h3 { font:normal 34px Italiana,Georgia,serif; }
+footer h4 { font-size:11px;letter-spacing:2px;text-transform:uppercase; }
+footer p,footer a {
+  display:block;color:#aaa;font-size:12px;
+  line-height:2.1;margin:8px 0;
+}
+.footer-bottom {
+  border-top:1px solid #444;margin-top:65px;padding-top:25px;
+  font-size:10px;color:#aaa;letter-spacing:1px;
+}
+.overlay {
+  position:fixed;inset:0;background:#0008;
+  z-index:29;display:none;
+}
+.overlay.show { display:block; }
+.cart {
+  position:fixed;top:0;right:0;bottom:0;z-index:30;
+  width:min(440px,100%);background:white;
+  transform:translateX(100%);transition:.3s;
+  display:flex;flex-direction:column;
+}
+.cart.show { transform:translateX(0); }
+.cart-head {
+  display:flex;justify-content:space-between;align-items:center;
+  padding:25px;border-bottom:1px solid #ddd;
+}
+.cart-head h2 { font-size:35px;margin:0; }
+.close { border:0;background:none;font-size:25px; }
+.cart-body { flex:1;overflow:auto;padding:25px; }
+.cart-item {
+  display:grid;grid-template-columns:70px 1fr auto;
+  gap:14px;padding-bottom:20px;margin-bottom:20px;
+  border-bottom:1px solid #ddd;
+}
+.cart-item img { width:70px;height:95px;object-fit:cover;filter:grayscale(100%); }
+.cart-item h4 { margin:0 0 8px;font-size:13px; }
+.cart-item p { font-size:12px;color:#777; }
+.cart-item button { border:0;background:none;font-size:15px; }
+.cart-foot { padding:25px;border-top:1px solid #ddd; }
+.cart-foot .btn { width:100%; }
+.subtotal { display:flex;justify-content:space-between;margin-bottom:20px; }
+.notice { font-size:11px;color:#777;line-height:1.6; }
+.toast {
+  position:fixed;bottom:25px;left:50%;transform:translateX(-50%);
+  background:#111;color:white;padding:15px 24px;
+  font-size:12px;z-index:40;display:none;
+}
+@media(max-width:900px) {
+  nav { gap:13px; }
+  .products { grid-template-columns:repeat(2,1fr); }
+  .hero { min-height:530px; }
+  .footer-grid { grid-template-columns:repeat(2,1fr); }
+}
+@media(max-width:650px) {
+  header { flex-wrap:wrap;justify-content:center;padding:17px 5%; }
+  .logo { font-size:27px; }
+  nav { order:3;width:100%;justify-content:center;gap:25px; }
+  .hero { grid-template-columns:1fr; }
+  .hero-text { padding:70px 8%; }
+  .hero-image { height:430px; }
+  .benefits { flex-wrap:wrap;gap:15px;font-size:9px; }
+  .section { padding:65px 0; }
+  .categories { grid-template-columns:1fr; }
+  .category { aspect-ratio:5/4; }
+  .category-title h3 { font-size:44px; }
+  .products { gap:24px 12px; }
+  .product h3 { font-size:20px; }
+  .add { position:static;width:100%; }
+  .section-head { align-items:start;flex-direction:column; }
+  .editorial { grid-template-columns:1fr; }
+  .editorial img { height:360px; }
+  .editorial-text { padding:65px 8%; }
+  .about { grid-template-columns:1fr;gap:15px; }
+  .footer-grid { grid-template-columns:repeat(2,1fr);gap:25px; }
+  .footer-grid>div:first-child { grid-column:1/-1; }
+}
+</style>
+</head>
+<body>
 
-This is a front-end demonstration store. Product images and prices are placeholders; checkout and newsletter signup are not connected. Replace the placeholder brand and contact details, add actual product photography, and integrate an ecommerce platform/payment provider and legal policy pages before selling.
+<div class="top">COMPLIMENTARY SHIPPING ON ORDERS OVER €100 · DEMO COLLECTION</div>
 
-The layout requires internet for external fonts and Unsplash placeholder images.
+<header>
+  <a href="#" class="logo">MAISON ÉLAN</a>
+  <nav>
+    <a href="#collections">Collections</a>
+    <a href="#shop">Shop</a>
+    <a href="#story">Our Story</a>
+  </nav>
+  <button class="action" onclick="openCart()">BAG (<span id="cart-count">0</span>)</button>
+</header>
+
+<main>
+
+<section class="hero">
+  <div class="hero-text">
+    <p class="eyebrow">THE NEW COLLECTION · 2026</p>
+    <h1>Quiet<br>Luxury.</h1>
+    <p>Elegance is an attitude. Discover a curated world of refined clothing, timeless watches and beautifully considered travel essentials.</p>
+    <a class="btn" href="#collections">DISCOVER THE COLLECTION &nbsp; ↗</a>
+  </div>
+  <div class="hero-image">
+    <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=1400&q=85" alt="Luxury fashion editorial">
+    <span class="hero-caption">THE ART OF ELEGANCE</span>
+  </div>
+</section>
+
+<div class="benefits">
+  <span>TIMELESS DESIGN</span>
+  <span>REFINED ESSENTIALS</span>
+  <span>MODERN ELEGANCE</span>
+</div>
+
+<section class="section container" id="collections">
+  <div class="section-head">
+    <div>
+      <p class="eyebrow">EXPLORE OUR WORLD</p>
+      <h2>The Collections</h2>
+    </div>
+    <p>Created for a life without compromise.</p>
+  </div>
+
+  <div class="categories">
+    <a href="#shop" class="category" onclick="filterProducts('clothing')">
+      <img loading="lazy" src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=950&q=85" alt="Clothing">
+      <div class="category-title">
+        <small>01 / THE WARDROBE</small>
+        <h3>Clothing</h3>
+        <span>EXPLORE COLLECTION ↗</span>
+      </div>
+    </a>
+    <a href="#shop" class="category" onclick="filterProducts('luggage')">
+      <img loading="lazy" src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=950&q=85" alt="Luggage">
+      <div class="category-title">
+        <small>02 / THE JOURNEY</small>
+        <h3>Luggage</h3>
+        <span>EXPLORE COLLECTION ↗</span>
+      </div>
+    </a>
+    <a href="#shop" class="category" onclick="filterProducts('watches')">
+      <img loading="lazy" src="https://images.unsplash.com/photo-1524592094714-0f0654e20314?w=950&q=85" alt="Watches">
+      <div class="category-title">
+        <small>03 / THE MOMENT</small>
+        <h3>Watches</h3>
+        <span>EXPLORE COLLECTION ↗</span>
+      </div>
+    </a>
+  </div>
+</section>
+
+<section class="shop" id="shop">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">THE MAISON ÉLAN EDIT</p>
+        <h2>Selected Essentials</h2>
+      </div>
+      <p>Discover the beauty of less.</p>
+    </div>
+
+    <div class="filters">
+      <button class="active" data-cat="all" onclick="filterProducts('all')">All Pieces</button>
+      <button data-cat="clothing" onclick="filterProducts('clothing')">Clothing</button>
+      <button data-cat="luggage" onclick="filterProducts('luggage')">Luggage</button>
+      <button data-cat="watches" onclick="filterProducts('watches')">Watches</button>
+    </div>
+
+    <div class="products" id="products"></div>
+  </div>
+</section>
+
+<section class="editorial">
+  <img loading="lazy" src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=1400&q=85" alt="Luxury travel">
+  <div class="editorial-text">
+    <p class="eyebrow">THE ART OF TRAVEL</p>
+    <h2>Beyond<br>the Ordinary.</h2>
+    <p>Wherever your journey leads, make every moment exceptional. Explore pieces that embody simplicity, confidence and effortless sophistication.</p>
+    <a href="#shop" class="btn" onclick="filterProducts('luggage')">EXPLORE TRAVEL ↗</a>
+  </div>
+</section>
+
+<section class="section container about" id="story">
+  <div>
+    <p class="eyebrow">OUR PHILOSOPHY</p>
+    <h2>True Elegance<br>Never Shouts.</h2>
+  </div>
+  <div>
+    <p>MAISON ÉLAN celebrates a world where style is effortless and luxury is found in the smallest details.</p>
+    <p>Our vision is simple: to bring together timeless silhouettes, refined accessories and travel essentials for the modern individual.</p>
+    <p>Less noise. More intention. Always elegant.</p>
+  </div>
+</section>
+
+<section class="newsletter" id="newsletter">
+  <p class="eyebrow">THE PRIVATE EDIT</p>
+  <h2>Enter Our World.</h2>
+  <p>Be the first to discover new collections and exclusive updates.</p>
+  <form id="newsletter-form">
+    <input type="email" id="email" placeholder="Your email address" required>
+    <button type="submit">JOIN ↗</button>
+  </form>
+  <p id="newsletter-message"></p>
+</section>
+
+</main>
+
+<footer>
+  <div class="footer-grid">
+    <div>
+      <h3>MAISON ÉLAN</h3>
+      <p>Timeless pieces. Modern elegance.<br>Created for the extraordinary everyday.</p>
+    </div>
+    <div>
+      <h4>EXPLORE</h4>
+      <a href="#collections">Collections</a>
+      <a href="#shop">Clothing</a>
+      <a href="#shop">Luggage</a>
+      <a href="#shop">Watches</a>
+    </div>
+    <div>
+      <h4>MAISON</h4>
+      <a href="#story">Our Story</a>
+      <a href="#newsletter">Newsletter</a>
+      <a href="mailto:hello@example.com">Contact</a>
+    </div>
+    <div>
+      <h4>THE EXPERIENCE</h4>
+      <p>Understated luxury.</p>
+      <p>Designed to inspire.</p>
+      <p>Demo store — not accepting orders.</p>
+    </div>
+  </div>
+  <div class="footer-bottom">© <span id="year"></span> MAISON ÉLAN. ALL RIGHTS RESERVED.</div>
+</footer>
+
+<div id="overlay" class="overlay" onclick="closeCart()"></div>
+<aside class="cart" id="cart" aria-label="Shopping bag">
+  <div class="cart-head">
+    <h2>Your Bag</h2>
+    <button class="close" onclick="closeCart()" aria-label="Close bag">×</button>
+  </div>
+  <div id="cart-items" class="cart-body"></div>
+  <div class="cart-foot">
+    <div class="subtotal">
+      <span>SUBTOTAL</span><strong id="subtotal">€0.00</strong>
+    </div>
+    <p class="notice">This is a demonstration store. Real checkout and payment are not enabled yet.</p>
+    <button class="btn" onclick="notify('Checkout will be available when payments are connected.')">CHECKOUT →</button>
+  </div>
+</aside>
+<div id="toast" class="toast" role="status"></div>
+
+<script>
+const products = [
+  {
+    id:1,category:"clothing",name:"The Tailored Blazer",
+    price:189,tag:"BESTSELLER",
+    image:"https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=700&q=85"
+  },
+  {
+    id:2,category:"clothing",name:"The Essential Shirt",
+    price:89,tag:"NEW",
+    image:"https://images.unsplash.com/photo-1598554747436-c9293d6a588f?w=700&q=85"
+  },
+  {
+    id:3,category:"watches",name:"The Signature Watch",
+    price:249,tag:"SIGNATURE",
+    image:"https://images.unsplash.com/photo-1524592094714-0f0654e20314?w=700&q=85"
+  },
+  {
+    id:4,category:"luggage",name:"The City Carry-On",
+    price:329,tag:"TRAVEL EDIT",
+    image:"https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=700&q=85"
+  },
+  {
+    id:5,category:"clothing",name:"The Classic Coat",
+    price:279,tag:"TIMELESS",
+    image:"https://images.unsplash.com/photo-1539533018447-63fcce2678e3?w=700&q=85"
+  },
+  {
+    id:6,category:"watches",name:"The Minimalist Timepiece",
+    price:219,tag:"NEW",
+    image:"https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=700&q=85"
+  },
+  {
+    id:7,category:"luggage",name:"The Weekend Traveller",
+    price:259,tag:"ESSENTIAL",
+    image:"https://images.unsplash.com/photo-1547949003-9792a18a2601?w=700&q=85"
+  },
+  {
+    id:8,category:"clothing",name:"The Modern Knit",
+    price:119,tag:"THE EDIT",
+    image:"https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=700&q=85"
+  }
+];
+
+const money = n => "€" + n.toFixed(2);
+let cart = [];
+
+try {
+  cart = JSON.parse(localStorage.getItem("maison-cart")) || [];
+  if (!Array.isArray(cart)) cart = [];
+} catch (e) { cart = []; }
+
+function renderProducts(category="all") {
+  const list = category==="all"
+    ? products
+    : products.filter(p=>p.category===category);
+
+  document.getElementById("products").innerHTML = list.map(p=>`
+    <article class="product">
+      <div class="product-img">
+        <img loading="lazy" src="${p.image}" alt="${p.name}">
+        <span class="tag">${p.tag}</span>
+        <button class="add" onclick="addToCart(${p.id})">ADD TO BAG +</button>
+      </div>
+      <small>${p.category}</small>
+      <h3>${p.name}</h3>
+      <div class="price">${money(p.price)}</div>
+    </article>
+  `).join("");
+}
+
+function filterProducts(category) {
+  renderProducts(category);
+  document.querySelectorAll(".filters button").forEach(b=>{
+    b.classList.toggle("active",b.dataset.cat===category);
+  });
+}
+
+function saveCart() {
+  try { localStorage.setItem("maison-cart",JSON.stringify(cart)); }
+  catch(e) {}
+  renderCart();
+}
+
+function addToCart(id) {
+  const item = cart.find(x=>x.id===id);
+  if(item) item.qty++;
+  else cart.push({id,qty:1});
+  saveCart();
+  notify("Added to your bag");
+}
+
+function changeQty(id,change) {
+  const item = cart.find(x=>x.id===id);
+  if(!item) return;
+  item.qty+=change;
+  cart=cart.filter(x=>x.qty>0);
+  saveCart();
+}
+
+function renderCart() {
+  const count=cart.reduce((s,x)=>s+x.qty,0);
+  document.getElementById("cart-count").textContent=count;
+
+  const html=cart.map(item=>{
+    const p=products.find(x=>x.id===item.id);
+    if(!p) return "";
+    return `
+      <div class="cart-item">
+        <img src="${p.image}" alt="${p.name}">
+        <div>
+          <h4>${p.name}</h4>
+          <p>${money(p.price)}</p>
+          <button onclick="changeQty(${p.id},-1)">−</button>
+          <span>${item.qty}</span>
+          <button onclick="changeQty(${p.id},1)">+</button>
+        </div>
+        <button onclick="removeItem(${p.id})" aria-label="Remove item">×</button>
+      </div>
+    `;
+  }).join("");
+
+  document.getElementById("cart-items").innerHTML=
+    html||"<p>Your shopping bag is empty.</p>";
+
+  const total=cart.reduce((s,item)=>{
+    const p=products.find(x=>x.id===item.id);
+    return s+(p?p.price*item.qty:0);
+  },0);
+  document.getElementById("subtotal").textContent=money(total);
+}
+
+function removeItem(id) {
+  cart=cart.filter(x=>x.id!==id);
+  saveCart();
+}
+
+function openCart() {
+  document.getElementById("cart").classList.add("show");
+  document.getElementById("overlay").classList.add("show");
+  document.body.style.overflow="hidden";
+}
+
+function closeCart() {
+  document.getElementById("cart").classList.remove("show");
+  document.getElementById("overlay").classList.remove("show");
+  document.body.style.overflow="";
+}
+
+let toastTimer;
+function notify(message) {
+  const box=document.getElementById("toast");
+  box.textContent=message;
+  box.style.display="block";
+  clearTimeout(toastTimer);
+  toastTimer=setTimeout(()=>box.style.display="none",2800);
+}
+
+document.getElementById("newsletter-form").addEventListener("submit",function(e){
+  e.preventDefault();
+  document.getElementById("newsletter-message").textContent=
+    "Thank you for your interest. Newsletter signup is not connected yet.";
+  this.reset();
+});
+
+document.getElementById("year").textContent=new Date().getFullYear();
+renderProducts();
+renderCart();
+</script>
+
+</body>
+</html>
